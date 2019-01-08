@@ -53,6 +53,7 @@ from student import views as student_views
 from student_account import views as student_account_views
 from track import views as track_views
 from util import views as util_views
+from openassessment.fileupload.urls import urlpatterns as oraurlpatterns
 
 if settings.DEBUG or settings.FEATURES.get('ENABLE_DJANGO_ADMIN_SITE'):
     django_autodiscover()
@@ -65,7 +66,6 @@ if settings.DEBUG or settings.FEATURES.get('ENABLE_DJANGO_ADMIN_SITE'):
 
 urlpatterns = [
     url(r'^$', branding_views.index, name='root'),   # Main marketing page, or redirect to courseware
-
     url(r'', include('student.urls')),
     # TODO: Move lms specific student views out of common code
     url(r'^dashboard/?$', student_views.student_dashboard, name='dashboard'),
@@ -73,6 +73,8 @@ urlpatterns = [
 
     # Event tracking endpoints
     url(r'', include('track.urls')),
+    
+    url(r'^openassessment/storage', include(oraurlpatterns)),
 
     # Static template view endpoints like blog, faq, etc.
     url(r'', include('static_template_view.urls')),
@@ -168,10 +170,6 @@ if settings.FEATURES.get('ENABLE_OPENBADGES'):
     urlpatterns += [
         url(r'^api/badges/v1/', include('badges.api.urls', app_name='badges', namespace='badges_api')),
     ]
-
-urlpatterns += [
-    url(r'^openassessment/fileupload/', include('openassessment.fileupload.urls')),
-]
 
 
 # sysadmin dashboard, to see what courses are loaded, to delete & load courses

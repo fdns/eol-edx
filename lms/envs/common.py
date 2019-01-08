@@ -922,14 +922,14 @@ ROOT_URLCONF = 'lms.urls'
 
 # Platform Email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'registration@example.com'
-DEFAULT_FEEDBACK_EMAIL = 'feedback@example.com'
-SERVER_EMAIL = 'devops@example.com'
-TECH_SUPPORT_EMAIL = 'technical@example.com'
-CONTACT_EMAIL = 'info@example.com'
-BUGS_EMAIL = 'bugs@example.com'
+DEFAULT_FROM_EMAIL = 'eol@uchile.cl'
+DEFAULT_FEEDBACK_EMAIL = 'eol@uchile.cl'
+SERVER_EMAIL = 'eol@uchile.cl'
+TECH_SUPPORT_EMAIL = 'eol@uchile.cl'
+CONTACT_EMAIL = 'eol@uchile.cl'
+BUGS_EMAIL = 'eol@uchile.cl'
 UNIVERSITY_EMAIL = 'university@example.com'
-PRESS_EMAIL = 'press@example.com'
+PRESS_EMAIL = 'eol@uchile.cl'
 FINANCE_EMAIL = ''
 
 # Platform mailing address
@@ -2030,6 +2030,7 @@ YOUTUBE_API_KEY = None
 # RemovedInDjango19Warnings in the test logs.
 INSTALLED_APPS = [
     # Standard ones that are always installed...
+    'course_info', 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.humanize',
@@ -2625,6 +2626,9 @@ PASSWORD_DICTIONARY = []
 
 # By default, don't use a file prefix
 ORA2_FILE_PREFIX = None
+ORA2_FILEUPLOAD_BACKEND="filesystem"
+ORA2_FILEUPLOAD_ROOT='/edx/var/edxapp/data'
+ORA2_FILEUPLOAD_CACHE_NAME='default'
 
 # Default File Upload Storage bucket and prefix. Used by the FileUpload Service.
 FILE_UPLOAD_STORAGE_BUCKET_NAME = 'edxuploads'
