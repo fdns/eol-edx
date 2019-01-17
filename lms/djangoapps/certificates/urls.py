@@ -22,7 +22,7 @@ urlpatterns = [
         name='render_cert_by_uuid'
     ),
 
-    url(r'^validate', views.validate_certificate, name='validate_certificate_by_uuid'),
+    url(r'^validate$', views.validate_certificate, name='validate_certificate'),
 
     # End-points used by student support
     # The views in the lms/djangoapps/support use these end-points
