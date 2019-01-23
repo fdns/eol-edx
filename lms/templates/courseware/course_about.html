@@ -68,7 +68,7 @@ from six import string_types
       if(xhr.status == 200) {
         location.href = "${reverse('dashboard')}";
       } else if (xhr.status == 403) {
-        location.href = "/login?next=/courses/${course.id | u}";
+        location.href = "/login?next=/courses/${course.id | u}/about";
       } else if (xhr.status == 400) { //This means the user did not have permission
         $('#register_error').html("${perms_error}").css("display", "block");
       } else {
@@ -89,7 +89,7 @@ from six import string_types
           location.href = xhr.responseText;
         }
       } else if (xhr.status == 403) {
-        location.href = "/login?next=/courses/${course.id | u}";
+        location.href = "/login?next=/courses/${course.id | u}/about";
       } else {
         $('#register_error').html(
             (xhr.responseText ? xhr.responseText : "${_("An error occurred. Please try again later.")}")
