@@ -18371,7 +18371,7 @@ msgid ""
 "You have been invited to join {course_name} at {site_name} by a member of "
 "the course staff."
 msgstr ""
-"Has sido invitado para participar como miembro del equipo para el curso "
+"Un miembro del equipo del curso te ha invitado a unirte a "
 "{course_name} en {site_name}."
 
 #: lms/templates/emails/enroll_email_allowedmessage.txt
