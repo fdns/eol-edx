@@ -101,7 +101,7 @@ class JwtBuilder(object):
             'family_name': self.user.last_name,
             'given_name': self.user.first_name,
             'administrator': self.user.is_staff,
-            'superuser': user.is_superuser, # Fix Elevation in permission over OAuth: https://github.com/edx/edx-platform/commit/da1c2a119ba675fcf239dee2b55d2fefc2b50b0f
+            'superuser': self.user.is_superuser, # Fix Elevation in permission over OAuth: https://github.com/edx/edx-platform/commit/da1c2a119ba675fcf239dee2b55d2fefc2b50b0f
         })
 
     def encode(self, payload):
